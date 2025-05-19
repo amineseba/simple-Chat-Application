@@ -1,0 +1,626 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    background-color: transparent;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.neon-cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.neon-cover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff0000);
+    background-size: 400% 400%;
+    animation: neonGradient 15s ease infinite;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.neon-cover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2), transparent);
+    animation: neonGlow 5s ease infinite;
+    z-index: 2;
+}
+
+.wrapper {
+    position: relative;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border: 2px solid #fff;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.6), 0 0 80px rgba(255, 255, 255, 0.4);
+    animation: float 4s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form header {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 50px #0ff;
+}
+
+.form form .error-text {
+    color: #ff4d4d;
+    background: rgba(255, 77, 77, 0.2);
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ff4d4d;
+    animation: errorBlink 1s infinite;
+    display: none;
+}
+
+.form form .name-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+form .name-details .field:first-child {
+    margin-right: 10px;
+    width: 100%;
+}
+
+form .name-details .field:last-child {
+    margin-left: 10px;
+    width: 100%;
+}
+
+.form form .field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form form .field label {
+    color: #fff;
+    font-size: 16px;
+    text-shadow: 0 0 5px #fff, 0 0 10px #0ff;
+}
+
+.form form .field input {
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+    border: 1px solid #0ff;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    transition: box-shadow 0.3s ease;
+}
+
+.form form .field input:focus {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 1);
+}
+
+.form form .button input {
+    height: 45px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    color: #000;
+    background: #0ff;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.form form .button input:hover {
+    background: #00ffff;
+    transform: scale(1.05);
+}
+
+.form .link {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #0ff;
+}
+
+.form .link a {
+    color: #0ff;
+    text-decoration: none;
+}
+
+.form .link a:hover {
+    text-decoration: underline;
+}
+
+/* Neon Glow Animation */
+@keyframes neonGlow {
+    0%, 100% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes neonGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes errorBlink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* User Section */
+.users {
+    padding: 10px ;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3), 0 0 80px rgba(255, 255, 255, 0.2);
+}
+
+.users header{
+    font-size: 15px;
+    font-weight: 500;
+    padding: 20px;
+    gap: 50px;
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.users header .content {
+    display: flex;
+    align-items: center;
+}
+
+.users header .content img {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.users header .details {
+    color: #fff;
+    margin-left: 15px;
+}
+
+.users header .details span {
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.users header .details p {
+    font-size: 14px;
+    color: #0ff;
+    margin-left: 10px;
+}
+
+.users header .logout {
+    margin-left: auto;
+    color: #0ff;
+    font-size: 17px;
+    padding: 7px 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.users header .logout:hover {
+    background: #0ff;
+    color: #000;
+}
+
+/* Search Bar */
+.users .search {
+    margin-top: 10px;
+    display: flex;
+    position: relative;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.users .search .text {
+    font-size: 18px;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.users .search input {
+    position: relative;
+    height: 42px;
+    width: 100%;
+    border: 1px solid #0ff;
+    padding: 0 13px;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.users .search input:focus {
+    border-color: #0ff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 1);
+}
+.users .search button {
+    height: 42px;
+    width:80px;
+    margin-left: 5px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: #0ff;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.users .search button:hover {
+    background: #00ffff;
+    color: #000;
+}
+.users .search input::placeholder {
+    color: #fff;
+    opacity: 0.7;
+}
+.users .search input:focus::placeholder {
+    color: #0ff;
+    opacity: 1;
+}
+.users span {
+    font-size: 18px;
+    color: #fff;
+    margin-left: 10px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-right: 10px;
+}
+
+
+    
+    
+/* Users List */
+.users-list {
+    overflow-y: auto;
+    max-height: 400px;
+    margin-top: 10px;
+}
+
+:is(.users-list,.chat-box)::-webkit-scrollbar {
+    width: 0px;
+}
+
+.users-list::-webkit-scrollbar-track {
+    background: #000;
+}
+
+.users-list::-webkit-scrollbar-thumb {
+    background-color: #0ff;
+    border-radius: 4px;
+}
+
+.users-list a {
+    margin-bottom: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    transition: background 0.3s ease;
+}
+
+.users-list a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.users-list a .content {
+    display: flex;
+    align-items: center;
+}
+
+.users-list a .content img {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.users-list a .details {
+    color: #fff;
+    margin-left: 15px;
+}
+
+.users-list a .details span {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.users-list a .details p {
+    font-size: 14px;
+    color: #0ff;
+    margin-left: 10px;
+}
+
+.users-list a .status-dot {
+    height: 10px;
+    width: 10px;
+    transform: translateY(-80%);
+    border-radius: 50%;
+    background-color: #0ff; /* Default color */
+    display: inline-block;
+}
+
+.users-list a .status-dot.online {
+    color: #0ff;
+    height: 10px;
+    width: 10px;
+    display: inline-block;
+}
+
+.users-list a .status-dot.offline {
+    color: #ccc;
+    height: 10px;
+    width: 10px;
+    display: inline-block;
+}
+
+/*chat-area Style Css Code */
+
+/* Chat Header */
+.chat-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3), 0 0 80px rgba(255, 255, 255, 0.2);
+}
+.chat-area header {
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.chat-area header .back-icon {
+    font-size: 18px;
+    color: #0ff;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.chat-area header .back-icon:hover {
+    color: #00ffff;
+}
+
+.chat-area header img {
+    height: 45px;
+    width: 45px;
+    margin: 0 15px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.chat-area header .details {
+    color: #fff;
+}
+
+.chat-area header .details span {
+    font-size: 21px;
+    font-weight: 900;
+}
+
+.chat-area header .details p {
+    font-size: 14px;
+    color: #0ff;
+}
+
+/* Chat Box */
+.chat-box {
+    height: 500px;
+    padding: 5px 5px 20px 30px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0 0 10px 10px;
+    box-shadow: inset 0 32px 32px -32px rgba(0, 0, 0, 0.1),
+                inset 0 -32px 64px -48px rgba(0, 0, 0, 0.1);
+}
+
+.chat-box .chat {
+    margin: 15px 0;
+}
+
+.chat-box .chat p {
+    padding: 8px 16px;
+    box-shadow: 0 0 32px rgba(0, 0, 8%),
+                0 16px 16px -16px rgba(0, 0, 10%);
+    border-radius: 18px;
+    max-width: 100%;
+    position: relative;
+    word-wrap: break-word;
+}
+
+/* Outgoing Messages */
+.chat-box .outgoing {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.outgoing .details {
+    margin-left: auto;
+    max-width: calc(100% - 130px);
+}
+
+.outgoing .details p {
+    background: #0ff;
+    color: #000;
+    border-radius: 18px 18px 0 18px;
+}
+
+/* Incoming Messages */
+.chat-box .incoming {
+    display: flex;
+    align-items: flex-end;
+}
+
+.chat-box .incoming img {
+    height: 35px;
+    width: 35px;
+    margin-right: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.incoming .details {
+    margin-left: 10px;
+    margin-right: auto;
+    max-width: calc(100% - 130px);
+}
+
+.incoming .details p {
+    background: #fff;
+    color: #000;
+    border-radius: 18px 18px 18px 0;
+}
+
+/* Chat Input Section */
+.chat-input {
+    display: flex;
+    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border-top: 1px solid #e6e6e6;
+}
+
+.chat-input input {
+    flex: 1;
+    height: 40px;
+    padding: 0 15px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    outline: none;
+}
+
+.chat-input button {
+    margin-left: 10px;
+    height: 40px;
+    width: 40px;
+    border: none;
+    border-radius: 5px;
+    background: #0ff;
+    color: #000;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.chat-input button:hover {
+    background: #00ffff;
+}
+
+.typing-area {
+    padding: 18px 30px;
+    display: flex;
+    border-radius: 20px;
+    justify-content: space-between;
+    background-color: rgb(0, 0, 0);
+    border-top: 1px solid #e6e6e6;
+}
+
+.typing-area input {
+    height: 45px;
+    width: calc(100% - 58px);
+    font-size: 17px;
+    border: 1px solid #ccc;
+    padding: 0 13px;
+    border-radius: 5px;
+    outline: none;
+    background: rgb(0, 0, 0);
+    color: #fff;
+}
+
+.typing-area button {
+    width: 55px;
+    border: none;
+    outline: none;
+    background: #fff;
+    color: #000000;
+    font-size: 19px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    transition: background 0.3s ease, color 0.3s ease;
+}
